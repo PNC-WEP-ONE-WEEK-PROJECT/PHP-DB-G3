@@ -1,0 +1,119 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana;
+} 
+*{
+    font-family: 'Times New Roman';
+}
+
+/* ----------MENU BAR------------------------------ */
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.logo{
+    width: 70px;
+    height: 50px;
+}
+.searchs{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 50px;
+    
+}
+.fa-search{
+    cursor:pointer;
+    margin-left: 10px;
+    padding: 8px;
+}
+.icon{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-left: -100px;
+}
+.fass{
+    color: blue;
+    font-size: 29px;
+}
+.fas:hover{
+    color: orange;
+    cursor: pointer;
+}
+.search{
+    padding: 10px;
+    border-radius: 10px ;
+    width: 80%;
+    border: 2px rgb(121, 113, 113) solid;
+}
+
+/* ----------CONTAINER--------------------------------- */
+
+.controlCon{
+    margin-top: 30px;
+    display: grid;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 50%;
+    margin-left: 290px;
+    border-radius: 10px;
+    height: 30vh;
+}
+
+.pic_profile{
+    width: 70px;
+    height:70px;
+    border-radius: 70px;
+}
+.container{
+    display: flex;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.post_text{
+    border: 2px rgb(121, 113, 113) solid;
+    border-radius: 10px;
+    margin-left: 50px;
+    width:70%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.hr{
+    width: 100%;
+    height: 2px;
+    margin-top: 5px;
+    background-color: rgb(121, 113, 113);
+}
+.typePost{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-around;
+}
+.felling{
+    margin-top: -15px;
+}
+.fa-photo-video:hover{
+    background: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+
+}
+.fa-photo-video{
+    height: 40px;
+    border-radius: 10px;
+    width: 40%;
+   
+}
+.file-input{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
