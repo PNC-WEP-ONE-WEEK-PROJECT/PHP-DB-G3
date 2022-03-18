@@ -14,4 +14,5 @@ require_once("header.php");
     <i class='far fa-user-circle fas' style='font-size:24px;cursor:pointer;'></i>
       <i class='fas fa-user-friends' style='font-size:24px;cursor:pointer;'></i>
   </div>
-</nav>
+</nav> 
+

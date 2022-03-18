@@ -7,7 +7,10 @@ body{
 nav{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    top: 0;
+    /* margin-bottom: rem; */
+    position: sticky;
 }
 .logo{
     width: 70px;
@@ -28,6 +31,7 @@ nav{
     justify-content: space-between;
     margin-top: 10px;
     margin-left: 5px;
+    
 }
 .fas{
     color: blue;
@@ -62,23 +66,19 @@ nav{
     height: 40px;
     margin-top: 10px;
 }
-.pic_profile:hover{
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    cursor: pointer;
-    
-}
+
 
 
 /* body_facebook */
 
 .container1{
-    /* margin-left: 30vh; */
+    
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 50%;
     margin:auto;
+    margin-bottom: 1rem;
+    
 
     
 }
@@ -95,10 +95,10 @@ nav{
     
 }
 
-.pic{
+.profile{
     margin-top: 10px;
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
     border-radius: 100px;
     cursor: pointer;
     margin-right: 5px;
@@ -117,15 +117,11 @@ nav{
 }
 .description{
     margin-left: -10%;
-    /* margin-top: 1%; */
     font-size: 20px;
 }
 .title{
     margin-top: 10px;
 }
-/* .icons{
-    margin-left: 25rem; 
-}*/
 .icon1{
     width:50%; 
     margin:auto;
@@ -147,4 +143,52 @@ nav{
     display:flex;
     align-items: center;
     margin-top:1rem;
+    border-bottom: 2px solid black;
 }
+
+/* container */
+
+.createPost{
+    text-align: center;
+}
+
+/* comment in post */
+
+
+.profile_cmm{
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+
+}
+.comment{
+    display: flex;
+}
+#cmm{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 80%;
+    height: 7vh;
+    border-radius: 10px
+}
+.choosepic{
+    
+    padding:10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 30%;
+    margin: auto;
+   
+}
+.post_text{
+    margin-bottom: 1rem;
+}
+
