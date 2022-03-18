@@ -6,5 +6,7 @@ require_once("templates/navbar.php");
 //  REQUIRE BODY-FB
 require_once("views/post_view.php");
 // require form_AddPost
-require_once("templates/footer.php");
 
+require_once("templates/container.php");
+//  REQUIRE BODY-FB
+require_once("templates/footer.php");
