@@ -116,14 +116,15 @@ function deleteCmm($commentid){
     return $statment ->rowCount() == 1;
 }
 // GET COMMENT FROM DB AND DISPLAY ON WEBSITE
-function updateCmm($commentid)
+function updateCmm($commentid,$descriptions)
 {
     global $db;
-    $statment=$db->prepare("UPDATE comments SET commentid=:commentid where commentid=:commentid");
+    $statment=$db->prepare("UPDATE comments SET descriptions=:descriptions where commentid=:commentid;");
     $statment ->execute([
-        'commentid' => $commentid
+        ':commentid' => $commentid,
+        ':descriptions' => $descriptions
     ]);
-    return $statment -> rowCount() ==1;
+    return $statment -> rowCount() == 1;
 
 }
 

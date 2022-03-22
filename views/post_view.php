@@ -78,36 +78,21 @@ $index;
         $postid = $img['postsid'];
         foreach ($display_comt as $com):
             $cmm_postsid = $com['postid'];
-            if ($postid == $cmm_postsid){
+            if ($postid == $cmm_postsid):
                 $coun_cmm += 1;
-                $comment=$com['descriptions'];
-            }
-        endforeach;  
+                echo '<img class="profile_cmm" src="../img/photo.jpg" alt="">';
+                echo "<p type='text' name='comment' class='cmms' '>".$com['descriptions'] ."</p>";
+            
         ?>
-        <?php    
-
-        $id_cmm = Display_cmm();
-        $stopLoop = false;
-        foreach ($id_cmm as $indexs):
-            $index_cmm = $indexs['commentid'];
-            // for ($i=0; $i<$coun_cmm;$i++):
-         
-        ?>
-        <?php ?>
-            <div class="edit_del">
-                <img class="profile_cmm" src="../img/photo.jpg" alt="">
-                <p type='text' name='comment' class='cmms'><?php echo $comment ?></p>
-                <div class="del_edit">
-                    <a href='controllers/delete_comment.php?id=<?php  echo $index_cmm; ?>'> <i class='fas fa-trash-alt' style='font-size:24px' name='delete' id='delete'></i></a>
-                    <a href='views/update_cmm_form.php?id=<?php  echo $index_cmm; ?>'> <i class='far fa-edit' style='font-size:24px' name='edit' id='edit' ></i></a>
-                </div>
+            <div class="del_edit  edit_del ">
+                <a href='controllers/delete_comment.php?id=<?php echo $com['commentid']; ?>'> <i class='fas fa-trash-alt ' style='font-size:24px' name='delete' id='delete'></i></a>
+                <a href='views/update_cmm_form.php?id=<?php echo  $com['commentid']; ?>'> <i class='far fa-edit' style='font-size:24px' name='edit' id='edit' ></i></a>
             </div>
-        
-        <?php  
-        // endfor; 
+        <?php 
+        endif; 
         endforeach;
-        
         ?>
+           
     </div>
 
     
