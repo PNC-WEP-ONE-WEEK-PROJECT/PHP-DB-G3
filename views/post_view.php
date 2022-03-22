@@ -1,22 +1,26 @@
 <?php
     // require_once('controllers/Uploadimg.php');
-    require_once('templates/header.php');
     require_once('models/item.php');
 ?>
 <!-- header of facebook -->
 <div class="container1">
-    <img src="../img/brother.jpg" alt="" name="pic_profile" class="pic_profile">
-    <input type="text" name="post_text" class="post_text" placeholder="  What's on your mind...?">
+    <div class="hearder">
+        <img src="../img/brother.jpg" alt="" name="pic_profile" class="pic_profile">
+        <input type="text" name="post_text" class="post_text" placeholder=" What's on your mind...?">
+    </div>
     <div class="choosepic">
-        <a href="../templates/container.php" class='link'><i class='fas fa-photo-video' style='font-size:24px'></i>Create_Your_Photo</a>
+        <a href="../templates/container.php" class='link'><i class='fas fa-photo-video' style='font-size:24px '></i>Create_Your_Photo</a>
     </div>
 </div>
-
 
 <!-- loop to get the image and text from the databases -->
 <?php 
 $getitem = getItems();
+$display_comt=display_cmm();
+// print_r($getitem);
 foreach ($getitem as $img):
+$index;
+// $getlike =likeonpic($like);
 ?>
 
 <!-- container to display the body -->
@@ -29,8 +33,8 @@ foreach ($getitem as $img):
         </div> 
         <div class="icon1">
            <div class="icons">
-           <a href="views/update_post.php?id=<?php echo $img['postsid'];?>"> <i class='far fa-edit' style='font-size:36px' name='edit' id="edit" ></i></a>
-           <a href="controllers/delete_post.php?id=<?php echo $img['postsid']; ?>"> <i class='fas fa-trash-alt' style='font-size:36px' name='delete' id='delete'></i></a>
+           <a href="views/update_post.php?id=<?php echo $img['postsid'];?>"> <i class='far fa-edit' style='font-size:30px' name='edit' id="edit" ></i></a>
+           <a href="controllers/delete_post.php?id=<?php echo $img['postsid']; ?>"> <i class='fas fa-trash-alt' style='font-size:30px' name='delete' id='delete'></i></a>
            </div>
      
        </div>
@@ -55,18 +59,78 @@ foreach ($getitem as $img):
             }
         ?>
     </div>
-    <div class="icon_like_cmm " >
-        <i class='far fa-heart' style='font-size:24px'></i>
-        <i class='far fa-comment-alt' style='font-size:24px'></i>
-    </div>
-    <div class="showcmm">
+    
+            <!-- place forz -->
+   
+    
+     <?php  
+        $increment = 0;
+        foreach ( likeonpic() as $likeimg):
+                if($likeimg['postid'] == $img['postsid']){
+                    $increment++;
+                }
         
+        endforeach; ?>
+  
+  <div class="show_comment" style="display:none" name="cmm">
+        <?php   
+        $coun_cmm = 0;
+        $postid = $img['postsid'];
+        foreach ($display_comt as $com):
+            $cmm_postsid = $com['postid'];
+            if ($postid == $cmm_postsid){
+                $coun_cmm += 1;
+                $comment=$com['descriptions'];
+            }
+        endforeach;  
+        ?>
+        <?php    
+
+        $id_cmm = Display_cmm();
+        $stopLoop = false;
+        foreach ($id_cmm as $indexs):
+            $index_cmm = $indexs['commentid'];
+            // for ($i=0; $i<$coun_cmm;$i++):
+         
+        ?>
+        <?php ?>
+            <div class="edit_del">
+                <img class="profile_cmm" src="../img/photo.jpg" alt="">
+                <p type='text' name='comment' class='cmms'><?php echo $comment ?></p>
+                <div class="del_edit">
+                    <a href='controllers/delete_comment.php?id=<?php  echo $index_cmm; ?>'> <i class='fas fa-trash-alt' style='font-size:24px' name='delete' id='delete'></i></a>
+                    <a href='views/update_cmm_form.php?id=<?php  echo $index_cmm; ?>'> <i class='far fa-edit' style='font-size:24px' name='edit' id='edit' ></i></a>
+                </div>
+            </div>
+        
+        <?php  
+        // endfor; 
+        endforeach;
+        
+        ?>
     </div>
-    <div class="comment">
-        <img class='profile_cmm' src="../img/photo.jpg" alt="">
-        <input type="text" name='comment_here' id='cmm' placeholder="Comment here ">
-    </div>
-</div> 
+
+    
+        <div id="icon_like_cmm" >
+            <button  type="submit" onclick="control_both_likeUnlike()" name="heart" class="btn_like"> <a href="../controllers/display_Like.php?postid=<?php echo $img['postsid'];?>">  <i class='far fa-heart' class="btn_like"​​ name="heart"  style='font-size:24px;'><?php echo $increment; ?>likes</i> </a></button>
+            <button type='submit' onclick="control_see_unsee_cmm()" class="btn_cmm" name='cmm' > <i class='far fa-comment-alt' class="btn_cmm" name='cmm' style='font-size:24px'><?php  echo $coun_cmm;  ?>comments</i> </button>
+        </div>
+
+    <form action="../controllers/add_comment.php">
+        <div class="comment">
+            <input type="hidden" name="postsid" value="<?php echo $img['postsid'] ?>">
+            <img class='profile_cmm' src="../img/photo.jpg" alt="">
+            <input type="text" name='comment_here' id='cmm' placeholder="Comment here ">
+        <button type='submit' name='add_cmm' class="sends"> <a href="../controllers/add_comment.php?id=<?php echo $img['postsid']; ?>" ><i class="material-icons send" style="font-size:36px;cursor:pointer;">send</i></a></button> 
+        </div>
+    </form>
+
+  
+</div>
+
+
+<?php global $index; $index+=1;?>
+
  <?php  endforeach; ?>
 
 

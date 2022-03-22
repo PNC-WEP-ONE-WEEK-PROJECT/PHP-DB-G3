@@ -1,4 +1,5 @@
 <?php  
+session_start();
 require_once('../models/item.php');
 ?>
 <?php
@@ -8,9 +9,10 @@ require_once('../models/item.php');
     $target="../img/uploads/".basename($_FILES['image']['name']);
 
     // get all the sumbitted data from form
-    $text=$_POST['text'];
+    $descriptions=$_POST['text'];
     $image=$_FILES['image']['name'];
-    createPost($image,$text);
+    $userid=$_SESSION['userid'];
+    createPost($userid,$image,$descriptions);
     
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)) {
         echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.";

@@ -38,24 +38,7 @@ function getItemById($postsid)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function deletePost($id)
-{
-    global $db;
-    $statment=$db->prepare("DELETE FROM posts WHERE postsid =:postsid;");
-    $statment ->execute([
-        ':postsid' => $id
-    ]);
-    return ($statment ->rowCount() ==1);
-}
 
-function deleteCmm($commentid){
-    global $db;
-    $statment =$db ->prepare('DELETE FROM comments WHERE commentid=:commentid ');
-    $statment ->execute([
-        ':commentid' => $commentid
-    ]);
-    return $statment ->rowCount() == 1;
-}
 
 /**
  * Update a Item given id and attibutes
@@ -74,21 +57,12 @@ function updateItem($postsid,$text,$image)
         ':descriptions' => $text,
         ':images' =>$image,
         'postsid' =>$postsid
-
-
+        
+        
     ]);
     return $statment ->rowCount() == 1;
 }
 
-function updateCmm($commentid)
-{
-    global $db;
-    $statment=$db->prepare("UPDATE comments SET commentid=:commentid where commentid=:commentid");
-    $statment ->execute([
-        'commentid' => $commentid
-    ]);
-
-}
 
 /**
  * Create a new item 
@@ -97,25 +71,87 @@ function updateCmm($commentid)
  
  * @return boolean: true if create was successful, false otherwise
  */
-function createPost($img, $descriptions)
+
+function createPost($userid,$image,$descriptions)
 {
     global $db;
-    $statment=$db->prepare("INSERT INTO posts (descriptions,images) values (:descriptions ,:img)");
+    $statment=$db->prepare("INSERT INTO posts (userid,descriptions,images) values (:userid,:descriptions ,:img)");
     $statment ->execute([
         ':descriptions' => $descriptions,
-        ':img' => $img
+        ':img' => $image,
+        ':userid' => $userid
     ]);
     return $statment ->rowCount() == 1;
 }
 
-function createCmm ($descriptions)
+
+function deletePost($id)
 {
     global $db;
-    $statment=$db->prepare("INSERT INTO comments (descriptions) values (:descriptions)");
+    $statment=$db->prepare("DELETE FROM posts WHERE postsid =:postsid;");
     $statment ->execute([
-        ':descriptions'=>$descriptions
+        ':postsid' => $id
     ]);
+    return ($statment ->rowCount() ==1);
 }
 
+
+function createCmm ($descriptions,$postid)
+{
+    global $db;
+    $statment=$db->prepare("INSERT INTO comments (descriptions,postid) values (:descriptions,:postid);");
+    $statment ->execute([
+        ':descriptions'=>$descriptions,
+        ':postid'=>$postid
+    ]);
+    return $statment ->rowCount() == 1;
+}
+
+function deleteCmm($commentid){
+    global $db;
+    $statment =$db ->prepare('DELETE FROM comments WHERE commentid=:commentid ');
+    $statment ->execute([
+        ':commentid' => $commentid
+    ]);
+    return $statment ->rowCount() == 1;
+}
+// GET COMMENT FROM DB AND DISPLAY ON WEBSITE
+function updateCmm($commentid)
+{
+    global $db;
+    $statment=$db->prepare("UPDATE comments SET commentid=:commentid where commentid=:commentid");
+    $statment ->execute([
+        'commentid' => $commentid
+    ]);
+    return $statment -> rowCount() ==1;
+
+}
+
+function Display_cmm() {
+    
+    global $db;
+    $statment=$db->query("SELECT comments.descriptions,posts.images,comments.postid,commentid FROM comments INNER JOIN posts ON comments.postid=posts.postsid");
+    $item=$statment->fetchAll();
+    return $item;
+
+}
+
+function createlike($userid,$postid){
+    global $db;
+    $statment = $db ->prepare("INSERT INTO likes(userid,postid) values (:userid,:postid)");
+    $statment ->execute([
+        ':userid' => $userid,
+        ':postid' => $postid
+    ]);
+    return $statment ->rowCount() == 1;
+}
+
+function likeonpic(){
+    global $db;
+    $statment = $db->query("SELECT * FROM likes");
+    $like = $statment->fetchAll();
+    return $like;
+    // return $statment ->rowCount() == 1;
+}
 
 
