@@ -11,7 +11,7 @@ require_once("header.php");
   </div>
   <div class="icon">
     <a href="#" class="btn active"> <i class='fas fa-home  fass' style='font-size:24px;'></i></a>
-    <a href="../views/account_user.php" > <i class='far fa-user-circle fass fas' style='font-size:24px;'></i></a>
+   <i class='far fa-user-circle fass fas' style='font-size:24px;'></i>
     <i class='fas fa-user-friends fass' style='font-size:24px;'></i>
 </nav> 
 
