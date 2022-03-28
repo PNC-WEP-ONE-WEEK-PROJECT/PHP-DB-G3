@@ -16,7 +16,7 @@ nav{
     justify-content: space-evenly;
     top: 0;
     position: sticky;
-    background-color: rgba(164, 170, 170, 0.952);
+    background-color: rgb(170, 180, 180);
     margin-bottom: 1rem;
 }
 .logo{
@@ -53,7 +53,7 @@ nav{
     font-size: 20px;
 }
 .fas:hover{
-    color: orange;
+    color: rgb(82, 209, 231);
     cursor: pointer;
 }
 .search{
@@ -77,9 +77,9 @@ nav{
 
 /* ----------CONTAINER--------------------------------- */
 .pic_profile{
-    width: 50px;
-    height:50px;
-    border-radius: 70px;
+    width: 70px;
+    height:70px;
+    border-radius: 200px;
 }
 .container{
     display: flex;
@@ -88,8 +88,17 @@ nav{
 }
 
 .hearder{
-    margin-left: 5rem;
+    margin-left: 2rem;
     display: flex;
+}
+.fa-edit:hover {
+    cursor: pointer;
+    color: rgb(82, 209, 231);
+}
+.fa-trash-alt:hover{
+    cursor: pointer;
+    color: rgb(82, 209, 231);
+
 }
 
 .hr{
@@ -106,12 +115,7 @@ nav{
 .felling{
     margin-top: -15px;
 }
-.fa-photo-video:hover{
-    background: whitesmoke;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-
-}
 .fa-photo-video{
     height: 40px;
     border-radius: 10px;
@@ -130,10 +134,11 @@ nav{
 }
 .post_text{
     /* padding: 5px; */
+    margin-bottom: 1rem;
     border: 2px blue solid;
     border-radius: 10px;
     margin-left: 50px;
-    width: 40%;
+    width: 80%;
     height: 40px;
     margin-top: 10px;
 }
@@ -149,17 +154,17 @@ nav{
 }
 
 .send:hover{
-    color: blue;
+    color: rgb(82, 209, 231);
 }
 .container1{
     padding:10px;
     text-align: center;
-    box-shadow: -1px -1px 3px 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 50%;
     margin:auto;
     margin-bottom: 1rem;
-    background-color: rgb(105, 129, 129);
-
+    background-color: rgb(170, 180, 180);
+    border-radius:10px;
     
 }
 .logo_fb,.hearder_post{
@@ -269,9 +274,6 @@ nav{
     width: 35%;
     margin: auto;
    
-}
-.post_text{
-    margin-bottom: 1rem;
 }
 
 /* createPost in facebook */
@@ -471,5 +473,59 @@ nav{
     color:white;
 }
 
+/* =---------------------PAGE FREINDS--------------- */
+.freinds{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-left: 18rem;
+    width: 60%;
+    background: rgb(158, 151, 151);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.freind_pf{
+    display:flex;
+    margin-top: 10px;
+    background: rgb(182, 171, 171);
+    padding: 10px;
+    border-radius: 5px 10px;
+    width: 160%;
+    margin-left: -5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.fri_pf{
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+}
+.add_delete{
+    margin-top: 3rem;
+    margin-left: -4rem;
+}
+.friend_name{
+    margin-top: -2px;
+    margin-left: 25px;
+}
+.add_freind:hover, .delete:hover{
+    background: blue;
+    color: white;
+}
+.add_freind, .delete{
+    cursor: pointer;
+    padding:10px;
+    border-radius:10px;
+    border: none;
+    
+}
+/* .delete{
+    padding:8px;
+    border-radius:10px;
 
+} */
+::placeholder{
+    padding-left: 10px;
+    color:red;
+    font-size:15px;
+}
 

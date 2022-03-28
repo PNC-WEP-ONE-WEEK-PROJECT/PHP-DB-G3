@@ -5,7 +5,7 @@
 <!-- header of facebook -->
 <div class="container1">
     <div class="hearder">
-        <img src="../img/brother.jpg" alt="" name="pic_profile" class="pic_profile">
+        <img src="../img/photo.jpg" alt="" name="pic_profile" class="pic_profile">
         <input type="text" name="post_text" class="post_text" placeholder=" What's on your mind...?">
     </div>
     <div class="choosepic">
@@ -33,8 +33,8 @@ $index;
         </div> 
         <div class="icon1">
            <div class="icons">
-           <a href="views/update_post.php?id=<?php echo $img['postsid'];?>"> <i class='far fa-edit' style='font-size:30px' name='edit' id="edit" ></i></a>
-           <a href="controllers/delete_post.php?id=<?php echo $img['postsid']; ?>"> <i class='fas fa-trash-alt' style='font-size:30px' name='delete' id='delete'></i></a>
+           <a href="views/update_post.php?id=<?php echo $img['postsid'] ?>"> <i class='far fa-edit' style='font-size:30px' name='edit' id="edit" ></i></a>
+           <a href="controllers/delete_post.php?id=<?php echo $img['postsid'] ?>"> <i class='fas fa-trash-alt' style='font-size:30px' name='delete' id='delete'></i></a>
            </div>
      
        </div>

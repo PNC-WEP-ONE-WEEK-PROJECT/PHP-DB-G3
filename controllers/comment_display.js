@@ -3,6 +3,7 @@ let btn_cmm = document.querySelectorAll(".btn_cmm");
 let show_cmm = document.querySelectorAll(".show_comment");
 let btn_like = document.querySelectorAll(".btn_like");
 let btn_send = document.querySelectorAll(".btn_send");
+let btn_add_fri = document.querySelectorAll(".add_freind");
 
 // CHECK IF BUTTON COMMENT HAS CLICKED-----------------
 function shows_cmm (event) {
@@ -89,3 +90,11 @@ function control_see_unsee_cmm() {
     }
     count_click_cmm+=1;
 }
+
+
+let user_friend = document.getElementById("user_friend");
+function showcolor(){
+    user_friend.style.color = "white"
+    console.log('helo');
+}
+user_friend.addEventListener("click",showcolor);

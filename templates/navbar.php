@@ -10,8 +10,8 @@ require_once("header.php");
       <i class='fas fa-search fass' style='font-size:24px'></i>
   </div>
   <div class="icon">
-    <a href="#" class="btn active"> <i class='fas fa-home  fass' style='font-size:24px;'></i></a>
-   <i class='far fa-user-circle fass fas' style='font-size:24px;'></i>
-    <i class='fas fa-user-friends fass' style='font-size:24px;'></i>
+    <a href="../index.php" id='home'> <i class='fas fa-home  fass' style='font-size:24px;'></i></a>
+    <i class='far fa-user-circle fass fas' style='font-size:24px;'></i>
+    <a href="templates/friends.php" id='user_friend' onclick="showcolor()"><i class='fas fa-user-friends fass' style='font-size:24px;'></i></a>
 </nav> 
 
